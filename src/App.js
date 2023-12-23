@@ -1,11 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
+import { Cards } from './Cards';
+import { Header } from './Header';
 
 function App() {
   return (
-    <h1>
-      my Shop
-    </h1>
+    <div className='appContainer'>
+      <Header/>
+      <Cards/>
+    </div>
+    
   );
 }
 
