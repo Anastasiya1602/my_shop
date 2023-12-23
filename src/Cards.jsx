@@ -1,5 +1,4 @@
 import Image from './assets/imgCards/image Product (1).png'
-// import Like from './assets/img/like.png'
 import React, { useState } from 'react';
 import { FaHeart } from 'react-icons/fa';
 
@@ -17,9 +16,7 @@ export const Cards = () => {
           <p className='price'>$299,43</p>
           <div className='buttons'>
           <button className='button'>delete</button>
-          {/* <img className='like'  src={Like} alt="like" /> */}
-          {/* <button className='like'><FaHeart /></button> */}
-          <button className='like' onClick={handleLikeClick} style={{ color: liked ? 'red' : 'black' }}>
+          <button className='like' onClick={handleLikeClick} style={{ color: liked ? 'red' : 'darkblue' }}>
         <FaHeart />
       </button>
           </div>
