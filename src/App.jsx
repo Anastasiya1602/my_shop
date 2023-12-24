@@ -1,8 +1,8 @@
 import './App.css';
 import { Cards } from './Cards';
 import { Header } from './Header';
-import { Product } from './Product';
 import { createBrowserRouter, RouterProvider, } from 'react-router-dom';
+import { Product } from './Product';
 
 const router = createBrowserRouter([
   {
@@ -10,7 +10,7 @@ const router = createBrowserRouter([
     element: <Cards/>
 },
 {
-  path: "/product",
+    path: "/product/:productId",
     element: <Product/>
 }
 ]);

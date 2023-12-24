@@ -26,17 +26,17 @@ export const Cards = () => {
       return newLiked;
     });
   };
-  const showMoreHandler = () => {
-    navigate('/product')
+  const showMoreHandler = (id) => {
+    navigate(`/product/${id}`)
   }
 
   return (  
   <div className='bestSeller '>
     <div className='cards'>
     {products.map((product, index) => (
-      <div onClick={showMoreHandler} className='card' key={product.id}>
+      <div  className='card' key={product.id}>
         <img src={product.image} alt="image" />
-        <h2 className='title'>{product.title}</h2>
+        <h2 onClick={() => showMoreHandler(product.id)} className='title'>{product.title}<br></br><span className='showmore'>...show more</span></h2>
         <p className='price'>${product.price}</p>
         <div className='buttons'>
           <button className='button'>delete</button>

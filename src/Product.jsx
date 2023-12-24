@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react"
 import axios from 'axios'
 import cartWhite from './assets/img/cartWhite.svg'
+import { useParams } from "react-router-dom";
 
 export const Product = () => {
 
 const [product, setProduct] = useState([null]);
+let { productId } = useParams();
 
 useEffect(() => {
-    axios.get('https://masterclass.kimitsu.it-incubator.ru/api/products/1')
+    axios.get(`https://masterclass.kimitsu.it-incubator.ru/api/products/${productId}`)
         .then((res) => {
           const product = res.data
           setProduct(product)
