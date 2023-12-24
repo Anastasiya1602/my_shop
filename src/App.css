@@ -10,10 +10,8 @@
   padding: 45px;
 }
 
-.button_liked {
-  position: absolute;
-  top:200px ;
-  right: 100px;
+.button_liked, .button_reset {
+  margin-bottom: 80px;
   background-color: rgb(16, 89, 148);
   border: 1px solid rgb(16, 89, 148);
   border-radius: 2px;
@@ -24,7 +22,10 @@
   font-weight: 500;
   line-height: 24px;
   cursor: pointer;
+}
 
+.button_reset {
+  margin-left: 100px;
 }
 
 .bestSeller {
