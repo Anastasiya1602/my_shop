@@ -30,8 +30,12 @@ export const Cards = () => {
     navigate(`/product/${id}`)
   }
 
+  
+
+
   return (  
   <div className='bestSeller '>
+    <button className='button_liked'>Liked</button>
     <div className='cards'>
     {products.map((product, index) => (
       <div  className='card' key={product.id}>

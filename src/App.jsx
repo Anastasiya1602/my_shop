@@ -19,7 +19,6 @@ function App() {
   return (
     <div className='appContainer'>
       <Header/>
-      <hr className="divider" />
       <RouterProvider router={router} />
     </div>
     

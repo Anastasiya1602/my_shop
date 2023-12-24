@@ -11,6 +11,9 @@
 }
 
 .button_liked {
+  position: absolute;
+  top:200px ;
+  right: 100px;
   background-color: rgb(16, 89, 148);
   border: 1px solid rgb(16, 89, 148);
   border-radius: 2px;
@@ -20,7 +23,6 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
-  margin-bottom: 36px;
   cursor: pointer;
 
 }
@@ -206,7 +208,7 @@
 .product .info button {
   background: #2068F8;
   border-radius: 4px;
-  width: 100%;
+  width: 100px;
   padding: 14px;
   color: white;
   border: none;
@@ -334,14 +336,3 @@
 } */
 
 
-/* Разделитель */
-.divider {
-  height: 2px;
-  background-color: rgba(0, 0, 0, 0.14);
-  border: none;
-  position: absolute;
-  width: 100%;
-  top: 120px;
-  left: 0;
-  right: 0;
-} 

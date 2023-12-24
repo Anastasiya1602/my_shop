@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react"
 import axios from 'axios'
-import cartWhite from './assets/img/cartWhite.svg'
 import { useParams } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 export const Product = () => {
 
 const [product, setProduct] = useState([null]);
 let { productId } = useParams();
-
+const navigate = useNavigate()
+const GoBack = () => {
+  navigate('/')
+}
 useEffect(() => {
     axios.get(`https://masterclass.kimitsu.it-incubator.ru/api/products/${productId}`)
         .then((res) => {
@@ -18,7 +21,7 @@ useEffect(() => {
 
   return (
     <div>
-  <div>Заглушка. Понадобится чуть позже. Не удаляейте :)</div>  
+  {/* <div>Заглушка. Понадобится чуть позже. Не удаляейте :)</div>   */}
   {
     product === null
     ? <h2>Продукт еще грузится ...</h2>:
@@ -34,10 +37,7 @@ useEffect(() => {
         <p>{product.category}</p>
       </div>
       <p className="description">{product.description}</p>
-      <button>
-        <img src={cartWhite} alt="" />
-        Add to cart
-      </button>
+      <button onClick={() => GoBack()} >back</button>
     </div>
   </div>
   
