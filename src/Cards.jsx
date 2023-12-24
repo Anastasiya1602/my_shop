@@ -1,25 +1,56 @@
-import Image from './assets/imgCards/image Product (1).png'
 import React, { useState } from 'react';
 import { FaHeart } from 'react-icons/fa';
+import { useEffect } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export const Cards = () => {
+  
+  const [products, setProducts] = useState([])
+  const navigate = useNavigate()
 
-  const [liked, setLiked] = useState(false);
+  useEffect( () => {
+    const promise = axios.get('https://masterclass.kimitsu.it-incubator.ru/api/products')
+    promise.then( (res) => {
+      console.log(res.data)
+      setProducts(res.data)
+    })
+  }, [])  
+  
+  const [liked, setLiked] = useState(Array(products.length).fill(false));
 
-  const handleLikeClick = () => {
-    setLiked(!liked);
+  const handleLikeClick = (index) => {
+    setLiked((prevLiked) => {
+      const newLiked = [...prevLiked];
+      newLiked[index] = !newLiked[index];
+      return newLiked;
+    });
   };
-  return (      
-        <div className='card'>
-          <img src={Image} alt="image" />
-          <h2 className='title'>Nike Air Max 270 React</h2>
-          <p className='price'>$299,43</p>
-          <div className='buttons'>
+  const showMoreHandler = () => {
+    navigate('/product')
+  }
+
+  return (  
+  <div className='bestSeller '>
+    <div className='cards'>
+    {products.map((product, index) => (
+      <div onClick={showMoreHandler} className='card' key={product.id}>
+        <img src={product.image} alt="image" />
+        <h2 className='title'>{product.title}</h2>
+        <p className='price'>${product.price}</p>
+        <div className='buttons'>
           <button className='button'>delete</button>
-          <button className='like' onClick={handleLikeClick} style={{ color: liked ? 'red' : 'darkblue' }}>
-        <FaHeart />
-      </button>
-          </div>
+          <button
+            className='like'
+            onClick={() => handleLikeClick(index)}
+            style={{ color: liked[index] ? 'red' : 'darkblue' }}
+          >
+            <FaHeart />
+          </button>
         </div>
+      </div>
+    ))}
+  </div>  
+  </div>  
   )
 }
